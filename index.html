@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>André Gatti Advocacia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="André Gatti Advocacia e Assessoria Jurídica, em Bauru/SP. Direito do consumidor e automotivo, assessoria a revendas de veículos, contratos, locação, família e responsabilidade civil.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: faixa grafite com o padrão do monograma (como no timbre) alternando com seções em papel claro; uma coluna de leitura de ~65 caracteres e grades que viram uma coluna no celular. */
+:root{
+  --grafite:#2c2d30;      /* fundo do timbre */
+  --grafite-2:#38393d;
+  --prata:#c8cacd;        /* monograma */
+  --papel:#f4f4f2;
+  --tinta:#1f2023;
+  --cinza:#5d6066;
+  --linha:#dcdddf;
+  --latao:#9a7b46;        /* único acento, usado com parcimônia */
+  --zap:#1f8a4c;
+  --display:"Marcellus SC","Trajan Pro",Georgia,serif;
+  --texto:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--papel);color:var(--tinta);font:400 1.0625rem/1.65 var(--texto)}
+img{max-width:100%;display:block}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--latao);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.eyebrow{font:600 .75rem/1 var(--texto);letter-spacing:.16em;text-transform:uppercase;color:var(--latao)}
+
+/* Padrão do monograma (desenhado em canvas pelo script; fallback = cor sólida) */
+.monograma{background-color:var(--grafite);background-repeat:repeat;background-size:46px 46px}
+
+/* Cabeçalho */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--grafite)}
+header.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--grafite);color:#fff;border-bottom:1px solid #45464a}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+.marca img{width:44px;height:44px}
+.marca b{display:block;font:400 1.2rem/1 var(--display);letter-spacing:.06em}
+.marca small{display:block;font-size:.72rem;color:var(--prata);letter-spacing:.04em;margin-top:4px}
+nav.menu{display:flex;gap:22px;font-size:.92rem}
+nav.menu a{text-decoration:none;color:var(--prata)}
+nav.menu a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:4px;font:600 .95rem/1 var(--texto);text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-zap{background:var(--zap);color:#fff}
+.btn-zap:hover{filter:brightness(1.08)}
+.btn-linha{border-color:var(--prata);color:#fff}
+.btn-linha:hover{background:rgba(255,255,255,.08)}
+.topo .btn{padding:10px 16px;font-size:.88rem}
+@media (max-width:880px){nav.menu{display:none}}
+@media (max-width:420px){.topo .btn span{display:none}}
+
+/* Abertura */
+.abertura{color:#fff}
+.abertura .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:end;padding-block:88px 72px}
+.abertura h1{font-size:clamp(2.1rem,5vw,3.6rem);letter-spacing:.01em}
+.abertura h1 em{font-style:normal;color:var(--prata)}
+.abertura p.lead{color:#d9dadc;max-width:34em;margin:22px 0 30px;font-size:1.1rem}
+.acoes{display:flex;flex-wrap:wrap;gap:12px}
+.ficha{background:rgba(20,20,22,.55);border:1px solid #4a4b50;padding:26px 26px 22px;border-radius:2px;backdrop-filter:blur(2px)}
+.ficha dl{margin:0;display:grid;gap:14px}
+.ficha dt{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--prata)}
+.ficha dd{margin:2px 0 0;font-size:1rem;color:#fff}
+@media (max-width:820px){.abertura .wrap{grid-template-columns:1fr;padding-block:56px 48px;gap:32px}}
+
+/* Seções */
+section.bloco{padding-block:84px}
+.cab{display:grid;gap:14px;max-width:40em;margin-bottom:44px}
+.cab h2{font-size:clamp(1.8rem,3.4vw,2.5rem)}
+.cab p{margin:0;color:var(--cinza)}
+
+/* Áreas */
+.areas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--linha);border-left:1px solid var(--linha)}
+.area{padding:30px 28px 32px;border-right:1px solid var(--linha);border-bottom:1px solid var(--linha);background:#fff;display:grid;gap:12px;align-content:start;min-width:0}
+.area svg{width:34px;height:34px;stroke:var(--grafite);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.area h3{font-size:1.25rem}
+.area p{margin:0;color:var(--cinza);font-size:.97rem}
+.area ul{margin:4px 0 0;padding-left:18px;color:var(--cinza);font-size:.92rem}
+.area.destaque{background:var(--grafite);color:#fff}
+.area.destaque p,.area.destaque ul{color:#d4d5d8}
+.area.destaque svg{stroke:var(--prata)}
+.area.destaque .eyebrow{color:#c9a96b}
+@media (max-width:900px){.areas{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.areas{grid-template-columns:1fr}}
+
+/* Sobre */
+.sobre{background:#fff;border-block:1px solid var(--linha)}
+.sobre .wrap{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:start}
+.retrato{aspect-ratio:4/5;max-width:100%;color:var(--prata);display:grid;place-items:center;text-align:center;font-size:.8rem;border-radius:2px}
+.retrato img{width:96px;height:96px;opacity:.9}
+.retrato span{display:block;margin-top:14px;letter-spacing:.1em;text-transform:uppercase}
+.sobre .texto{max-width:38em;min-width:0}
+.sobre .texto p{color:#3b3d42}
+.inscricao{display:inline-block;margin-top:6px;font:500 .9rem/1 var(--texto);letter-spacing:.08em;color:var(--cinza);border:1px solid var(--linha);padding:9px 12px}
+@media (max-width:820px){.sobre .wrap{grid-template-columns:1fr;gap:32px}.retrato{max-width:280px}}
+
+/* Atendimento (sequência real) */
+.passos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;counter-reset:p;list-style:none;margin:0;padding:0}
+.passos li{counter-increment:p;border-top:2px solid var(--grafite);padding-top:18px;min-width:0}
+.passos li::before{content:counter(p);font:400 1.6rem/1 var(--display);color:var(--latao);display:block;margin-bottom:10px}
+.passos h3{font-size:1.1rem;margin-bottom:8px}
+.passos p{margin:0;color:var(--cinza);font-size:.95rem}
+@media (max-width:860px){.passos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.passos{grid-template-columns:1fr}}
+
+/* Perguntas frequentes */
+.faq{max-width:52em;display:grid;gap:0;border-top:1px solid var(--linha)}
+.faq details{border-bottom:1px solid var(--linha)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;font-weight:600;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:16px;font:400 1.5rem/1 var(--display);color:var(--latao)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin:0 0 22px;color:#3b3d42;max-width:62ch}
+.faq small{display:block;margin-top:24px;color:var(--cinza);font-size:.85rem}
+
+/* Contato */
+.contato{color:#fff}
+.contato .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-block:84px}
+.contato h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin:14px 0 16px}
+.contato p{color:#d4d5d8;margin:0 0 26px;max-width:32em}
+.canais{display:grid;gap:0;border-top:1px solid #4a4b50}
+.canal{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid #4a4b50;min-width:0}
+.canal span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--prata);padding-top:3px}
+.canal a,.canal div{text-decoration:none;color:#fff;overflow-wrap:anywhere}
+.canal a:hover{text-decoration:underline}
+@media (max-width:820px){.contato .wrap{grid-template-columns:1fr;padding-block:60px}}
+@media (max-width:420px){.canal{grid-template-columns:1fr;gap:4px}}
+
+footer{background:#1d1e20;color:#a7a9ad;font-size:.85rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:24px}
+
+.zap-flutuante{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:8;width:56px;height:56px;border-radius:50%;background:var(--zap);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.zap-flutuante svg{width:28px;height:28px;fill:#fff}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="André Gatti Advocacia, início">
+      <img src="assets/logo.png" alt="" width="44" height="44">
+      <span><b>André Gatti</b><small>Advocacia e Assessoria Jurídica</small></span>
+    </a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#atuacao">Áreas de atuação</a>
+      <a href="#escritorio">O escritório</a>
+      <a href="#atendimento">Atendimento</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-zap" href="https://wa.me/5514991925253" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<section class="abertura monograma">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:#c9a96b">Bauru · São Paulo</p>
+      <h1 style="margin-top:16px">Advocacia cível e do consumidor, <em>com atenção especial ao mercado de veículos.</em></h1>
+      <p class="lead">Atendimento a pessoas e empresas em Bauru e região, presencial ou on-line, com processos acompanhados de perto e informação clara em cada etapa.</p>
+      <div class="acoes">
+        <a class="btn btn-zap" href="https://wa.me/5514991925253" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+        <a class="btn btn-linha" href="#atuacao">Ver áreas de atuação</a>
+      </div>
+    </div>
+    <aside class="ficha" aria-label="Dados do escritório">
+      <dl>
+        <div><dt>Advogado responsável</dt><dd>André Gatti Moreno · OAB/SP 431.401</dd></div>
+        <div><dt>Endereço</dt><dd>Rua Paes Leme, 5-19 · Vila Flores<br>Bauru/SP · CEP 17013-180</dd></div>
+        <div><dt>Telefones</dt><dd>(14) 99192-5253 · (14) 99811-0403</dd></div>
+        <div><dt>Atuação</dt><dd>Justiça Estadual e Juizados Especiais, em todo o estado de São Paulo, por processo eletrônico</dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="bloco" id="atuacao">
+  <div class="wrap">
+    <div class="cab">
+      <p class="eyebrow">Áreas de atuação</p>
+      <h2>Onde o escritório trabalha</h2>
+      <p>Os casos mais frequentes do escritório envolvem compra e venda de veículos, contratos e relações de consumo. Abaixo, as áreas e alguns exemplos do que costuma chegar até nós.</p>
+    </div>
+    <div class="areas">
+      <article class="area destaque">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 20v-4l3-6h14l4 6h2a1 1 0 0 1 1 1v3"/><path d="M4 20h24"/><circle cx="9" cy="21" r="2.5"/><circle cx="23" cy="21" r="2.5"/><path d="M8 15h18"/></svg>
+        <p class="eyebrow">Especialidade do escritório</p>
+        <h3>Assessoria a revendas de veículos</h3>
+        <p>Suporte jurídico para lojas e garagens: da redação dos contratos à defesa em ações movidas por compradores.</p>
+        <ul>
+          <li>Contratos de compra e venda e de repasse</li>
+          <li>Veículos com histórico de leilão</li>
+          <li>Defesa em ações de vício oculto</li>
+          <li>Acordos e conciliações</li>
+        </ul>
+      </article>
+      <article class="area">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 8h20v14H6z"/><path d="M6 12h20"/><path d="M10 17h6"/><path d="M12 26h8"/><path d="M16 22v4"/></svg>
+        <h3>Direito do consumidor</h3>
+        <p>Problemas com produtos, serviços, bancos e financiamentos.</p>
+        <ul>
+          <li>Negativação indevida e cobranças</li>
+          <li>Golpes e fraudes bancárias</li>
+          <li>Vício do produto e do serviço</li>
+        </ul>
+      </article>
+      <article class="area">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5v22"/><path d="M8 27h16"/><path d="M6 10h20"/><path d="M6 10l-3 8a3 3 0 0 0 6 0z"/><path d="M26 10l-3 8a3 3 0 0 0 6 0z"/></svg>
+        <h3>Direito civil e contratos</h3>
+        <p>Elaboração, revisão e discussão de contratos e obrigações.</p>
+        <ul>
+          <li>Contratos particulares</li>
+          <li>Cobranças e execuções</li>
+          <li>Cumprimento de sentença</li>
+        </ul>
+      </article>
+      <article class="area">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 15 16 6l11 9"/><path d="M8 13v13h16V13"/><path d="M14 26v-7h4v7"/></svg>
+        <h3>Imobiliário e locação</h3>
+        <p>Locação residencial e comercial, compra e venda de imóveis.</p>
+        <ul>
+          <li>Contratos de locação</li>
+          <li>Compromisso de compra e venda e sinal</li>
+          <li>Despejo e cobrança de aluguéis</li>
+        </ul>
+      </article>
+      <article class="area">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="11" cy="10" r="3.5"/><circle cx="22" cy="12" r="2.8"/><path d="M4 26c0-4 3-7 7-7s7 3 7 7"/><path d="M17 26c0-3 2-5.5 5-5.5s5 2.5 5 5.5"/></svg>
+        <h3>Família</h3>
+        <p>Questões familiares tratadas com discrição e cuidado.</p>
+        <ul>
+          <li>Guarda e convivência</li>
+          <li>Pensão alimentícia e execução</li>
+          <li>Divórcio</li>
+        </ul>
+      </article>
+      <article class="area">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4 5 8v7c0 6.5 4.7 11.4 11 13 6.3-1.6 11-6.5 11-13V8z"/><path d="M11 16l3.5 3.5L21 13"/></svg>
+        <h3>Responsabilidade civil</h3>
+        <p>Reparação de danos materiais e morais.</p>
+        <ul>
+          <li>Acidentes de trânsito</li>
+          <li>Acidentes em rodovias concedidas</li>
+          <li>Danos causados por terceiros</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="bloco sobre" id="escritorio">
+  <div class="wrap">
+    <div class="retrato monograma">
+      <div><img src="assets/logo.png" alt="" width="96" height="96"><span>Foto do advogado</span></div>
+    </div>
+    <div class="texto">
+      <p class="eyebrow">O escritório</p>
+      <h2 style="font-size:clamp(1.8rem,3.4vw,2.5rem);margin:14px 0 20px">André Gatti Moreno</h2>
+      <p>O escritório André Gatti Advocacia e Assessoria Jurídica fica em Bauru e atende clientes da cidade e da região. O trabalho combina a advocacia contenciosa, com atuação em processos judiciais, e a assessoria preventiva, com a elaboração de contratos e orientação antes que o problema chegue à Justiça.</p>
+      <p>Boa parte da rotina está ligada ao comércio de veículos. O escritório assessora revendas na redação de contratos e na defesa de ações, e também atende consumidores em disputas de compra, financiamento e fraudes bancárias.</p>
+      <p>Cada cliente acompanha o andamento do próprio caso e recebe explicações em linguagem simples sobre prazos, riscos e possibilidades.</p>
+      <span class="inscricao">OAB/SP 431.401</span>
+    </div>
+  </div>
+</section>
+
+<section class="bloco" id="atendimento">
+  <div class="wrap">
+    <div class="cab">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Do primeiro contato ao acompanhamento</h2>
+    </div>
+    <ol class="passos">
+      <li><h3>Primeiro contato</h3><p>Você explica a situação pelo WhatsApp ou por e-mail e agendamos uma conversa.</p></li>
+      <li><h3>Análise dos documentos</h3><p>Lemos contratos, conversas, notificações e o processo, se já existir.</p></li>
+      <li><h3>Orientação</h3><p>Apresentamos os caminhos possíveis, os riscos de cada um e os honorários, por escrito.</p></li>
+      <li><h3>Acompanhamento</h3><p>Com o trabalho contratado, você recebe notícias de cada movimentação importante.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="bloco" id="duvidas" style="padding-top:0">
+  <div class="wrap">
+    <div class="cab">
+      <p class="eyebrow">Conteúdo informativo</p>
+      <h2>Dúvidas frequentes</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Qual a diferença entre vício oculto e desgaste natural em um carro usado?</summary>
+        <p>Vício oculto é um defeito que já existia no momento da venda e que o comprador não tinha como perceber numa inspeção comum. Desgaste natural é a perda esperada de peças pelo uso e pela idade do veículo, como pastilhas de freio, embreagem e pneus. A diferença costuma ser decisiva em ações contra revendas, e normalmente depende de laudo ou perícia.</p>
+      </details>
+      <details>
+        <summary>Qual o prazo para reclamar de um defeito em veículo usado?</summary>
+        <p>Pelo Código de Defesa do Consumidor, o prazo para reclamar de vício em produto durável é de 90 dias. Quando o vício é oculto, esse prazo começa a contar a partir do momento em que o defeito aparece. Cada caso tem particularidades, então vale guardar notas fiscais, ordens de serviço e conversas com a loja.</p>
+      </details>
+      <details>
+        <summary>Comprar um carro com histórico de leilão é um problema?</summary>
+        <p>Não necessariamente. O ponto central é a informação: a loja deve informar o histórico de leilão de forma clara, de preferência por escrito no contrato. Um contrato bem redigido protege tanto o comprador quanto o vendedor.</p>
+      </details>
+      <details>
+        <summary>O que é o golpe do falso advogado e o que fazer se eu cair nele?</summary>
+        <p>Golpistas se passam pelo advogado da pessoa, usando dados reais do processo, e pedem pagamentos para liberar valores. Se isso acontecer, registre boletim de ocorrência, avise o banco imediatamente e peça a abertura do Mecanismo Especial de Devolução (MED) do Pix. Em alguns casos é possível discutir a responsabilidade das instituições financeiras.</p>
+      </details>
+      <details>
+        <summary>Fui negativado por uma dívida que não reconheço. O que fazer?</summary>
+        <p>Reúna o comprovante da negativação (Serasa, SPC ou Boa Vista) e qualquer contato com a empresa. É possível pedir na Justiça a retirada do nome dos cadastros, a declaração de que a dívida não existe e, conforme o caso, indenização.</p>
+      </details>
+      <small>As respostas acima têm caráter informativo e não substituem a análise do caso concreto por um advogado.</small>
+    </div>
+  </div>
+</section>
+
+<section class="contato monograma" id="contato">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:#c9a96b">Contato</p>
+      <h2>Fale com o escritório</h2>
+      <p>Atendimento presencial em Bauru, mediante agendamento, e on-line para clientes de outras cidades.</p>
+      <a class="btn btn-zap" href="https://wa.me/5514991925253" target="_blank" rel="noopener">Enviar mensagem no WhatsApp</a>
+    </div>
+    <div class="canais">
+      <div class="canal"><span>WhatsApp</span><a href="https://wa.me/5514991925253" target="_blank" rel="noopener">(14) 99192-5253</a></div>
+      <div class="canal"><span>Telefone</span><div>(14) 99811-0403</div></div>
+      <div class="canal"><span>E-mail</span><div>agatti.adv@gmail.com</div></div>
+      <div class="canal"><span>Endereço</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Paes+Leme+5-19+Vila+Flores+Bauru+SP" target="_blank" rel="noopener">Rua Paes Leme, 5-19 · Vila Flores · Bauru/SP · CEP 17013-180</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>André Gatti Advocacia e Assessoria Jurídica · André Gatti Moreno · OAB/SP 431.401</span>
+    <span>Bauru/SP</span>
+  </div>
+</footer>
+
+<a class="zap-flutuante" href="https://wa.me/5514991925253" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+</a>
+
+<script>
+/* Desenha o padrão do monograma "AG" (como no fundo do timbre) e aplica nas faixas grafite. */
+(function(){
+  try{
+    var c=document.createElement('canvas'),s=92;c.width=c.height=s;
+    var x=c.getContext('2d');x.fillStyle='#2c2d30';x.fillRect(0,0,s,s);
+    x.strokeStyle='rgba(200,202,205,0.07)';x.lineWidth=4;x.lineJoin='round';
+    function escudo(cx,cy,k){
+      x.save();x.translate(cx,cy);x.scale(k,k);
+      x.beginPath();x.moveTo(-14,-14);x.lineTo(14,-14);x.lineTo(14,4);x.lineTo(0,16);x.lineTo(-14,4);x.closePath();x.stroke();
+      x.beginPath();x.moveTo(-6,10);x.lineTo(-6,-6);x.lineTo(-2,-6);x.moveTo(6,10);x.lineTo(6,-6);x.lineTo(2,-6);x.stroke();
+      x.restore();
+    }
+    escudo(23,23,.9);escudo(69,69,.9);
+    var url=c.toDataURL();
+    document.querySelectorAll('.monograma').forEach(function(el){el.style.backgroundImage='url('+url+')';});
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
