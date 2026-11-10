@@ -98,9 +98,13 @@ section.bloco{padding-block:84px}
 /* Sobre */
 .sobre{background:#fff;border-block:1px solid var(--linha)}
 .sobre .wrap{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:start}
-.retrato{aspect-ratio:4/5;max-width:100%;color:var(--prata);display:grid;place-items:center;text-align:center;font-size:.8rem;border-radius:2px}
-.retrato img{width:96px;height:96px;opacity:.9}
-.retrato span{display:block;margin-top:14px;letter-spacing:.1em;text-transform:uppercase}
+.retrato{margin:0;max-width:100%}
+.retrato img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:2px;box-shadow:0 18px 40px -22px rgba(0,0,0,.45)}
+.retrato figcaption{margin-top:8px;font-size:.75rem;color:var(--cinza)}
+.faixa-foto{margin:0;position:relative;background:var(--grafite)}
+.faixa-foto img{width:100%;height:auto;aspect-ratio:12/5;object-fit:cover;max-height:560px}
+.faixa-foto figcaption{position:absolute;left:0;right:0;bottom:0;color:#fff;font-size:.8rem;letter-spacing:.06em;background:linear-gradient(transparent,rgba(0,0,0,.55));padding-block:28px 14px}
+@media (max-width:600px){.faixa-foto img{aspect-ratio:4/3}}
 .sobre .texto{max-width:38em;min-width:0}
 .sobre .texto p{color:#3b3d42}
 .inscricao{display:inline-block;margin-top:6px;font:500 .9rem/1 var(--texto);letter-spacing:.08em;color:var(--cinza);border:1px solid var(--linha);padding:9px 12px}
@@ -267,9 +271,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 
 <section class="bloco sobre" id="escritorio">
   <div class="wrap">
-    <div class="retrato monograma">
-      <div><img src="assets/logo.png" alt="" width="96" height="96"><span>Foto do advogado</span></div>
-    </div>
+    <figure class="retrato">
+      <img src="assets/andre-gatti.jpg" alt="André Gatti Moreno, advogado, de terno cinza" width="600" height="750" loading="lazy">
+      <figcaption>Foto: Rafael Iglesias Fotografia</figcaption>
+    </figure>
     <div class="texto">
       <p class="eyebrow">O escritório</p>
       <h2 style="font-size:clamp(1.8rem,3.4vw,2.5rem);margin:14px 0 20px">André Gatti Moreno</h2>
@@ -296,7 +301,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   </div>
 </section>
 
-<section class="bloco" id="duvidas" style="padding-top:0">
+<figure class="faixa-foto">
+  <img src="assets/palacio-justica.jpg" alt="André Gatti Moreno de beca no Palácio da Justiça, em São Paulo, diante da entrada do Salão do Júri" width="1600" height="667" loading="lazy">
+  <figcaption><div class="wrap">Palácio da Justiça · Tribunal de Justiça de São Paulo</div></figcaption>
+</figure>
+
+<section class="bloco" id="duvidas">
   <div class="wrap">
     <div class="cab">
       <p class="eyebrow">Conteúdo informativo</p>
